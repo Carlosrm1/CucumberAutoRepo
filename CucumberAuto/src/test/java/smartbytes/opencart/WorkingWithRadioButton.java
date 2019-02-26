@@ -50,6 +50,8 @@ try {
 	System.out.println("chekbox");
 driver.findElement(By.name("agree")).click();
 
+
+
 	}
 }	
 

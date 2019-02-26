@@ -30,19 +30,39 @@ public class TakenScreens {
 		// Open Url
 		System.out.println("Opening URL : "+url);
 		driver.get (url);
+		
+		System.out.println("pantalla del login");
+	
+		TakesScreenshot scrShotlogin =((TakesScreenshot)driver);
+		File loginpageScreenShotPAge = scrShotlogin.getScreenshotAs(OutputType.FILE);
+		
+		FileUtils fileutils = new FileUtils();
+		try {
+			fileutils.copyFile(loginpageScreenShotPAge, new File ("C:\\CucumberSetup\\scrshots\\login.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+		
 		driver.findElement(By.name("email")).sendKeys("yo@gmail.com");
 		driver.findElement(By.name("password")).sendKeys("343434");
 		driver.findElement(By.xpath("//*[@id=\"content\"]/div[2]/div[2]/form/div/input[3]")).click();
 		
 		
 		// take screen shot
-		
+		System.out.println("Pantalla de homepage");
 		TakesScreenshot scrShot =((TakesScreenshot)driver);
-		File loginpageScreenShotPAge = scrShot.getScreenshotAs(OutputType.FILE);
+		File homepageScreenShotPAge = scrShot.getScreenshotAs(OutputType.FILE);
 		
-		FileUtils fileutils = new FileUtils();
+		FileUtils fileutil = new FileUtils();
 		try {
-			fileutils.copyFile(loginpageScreenShotPAge, new File ("C:\\CucumberSetup\\scrshots\\homepage.png"));
+			fileutil.copyFile(homepageScreenShotPAge, new File ("C:\\CucumberSetup\\scrshots\\homepage.png"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
